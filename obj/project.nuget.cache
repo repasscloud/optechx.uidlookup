@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "TyiMBM/xhNfkMnEj3u/E/4qQ4q+yx75yItniCVNXGI0ROWgjM+iFE9QBsjjwerW/jyTdkhYnka9dmYpTKfApUg==",
+  "success": true,
+  "projectFilePath": "/Users/danijel-rpc/Projects/uidlookup/uidlookup.csproj",
+  "expectedPackageFiles": [
+    "/Users/danijel-rpc/.nuget/packages/npgsql/6.0.2/npgsql.6.0.2.nupkg.sha512",
+    "/Users/danijel-rpc/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "/Users/danijel-rpc/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/Users/danijel-rpc/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

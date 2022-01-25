@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>com.optechx.uidlookup</PackageId>
+    <Authors>RePass Cloud Pty Ltd</Authors>
+    <Copyright>Copyright © 2022 RePass Cloud Pty Ltd</Copyright>
+    <Description>OptechX UID Lookup Tool</Description>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Configurations>Release;Debug</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="6.0.2" />
+  </ItemGroup>
+
+</Project>
