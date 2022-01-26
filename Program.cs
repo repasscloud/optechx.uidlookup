@@ -5,12 +5,12 @@ namespace uidlookup
 {
     class Program
     {
-        private static string _dbHost = string.Empty;
-        private static int _dbPort = 0;
-        private static string _dbDB = string.Empty;
-        private static string _dbUserID = string.Empty;
-        private static string _dbPass = string.Empty;
-        private static string _uid = string.Empty;
+        private static string csHost = string.Empty;
+        private static int csPort = 0;
+        private static string csDB = string.Empty;
+        private static string csUserID = string.Empty;
+        private static string csPass = string.Empty;
+        private static string uid = string.Empty;
 
         static void Main(string[] args)
         {
@@ -26,30 +26,30 @@ namespace uidlookup
             {
                 switch (args[i].Trim().ToLowerInvariant())
                 {
-                    case "--dbhost":
-                        _dbHost = args[i + 1];
+                    case "--cshost":
+                        csHost = args[i + 1];
                         break;
-                    case "--dbport":
-                        _dbPort = Int32.Parse(args[i + 1]);
+                    case "--csport":
+                        csPort = Int32.Parse(args[i + 1]);
                         break;
-                    case "--dbdb":
-                        _dbDB = args[i + 1];
+                    case "--csdb":
+                        csDB = args[i + 1];
                         break;
-                    case "--dbuserid":
-                       _dbUserID = args[i + 1];
+                    case "--csuserid":
+                       csUserID = args[i + 1];
                         break;
-                    case "--dbpass":
-                        _dbPass = args[i + 1];
+                    case "--cspass":
+                        csPass = args[i + 1];
                         break;
                     case "--uid":
-                        _uid = args[i + 1];
+                        uid = args[i + 1];
                         break;
                 }
             }
 
             // main function
-            var cs = NewCS(dbHost: _dbHost, dbPort: _dbPort, dbDB: _dbDB, dbUserID: _dbUserID, dbPass: _dbPass);
-            int output = UIDMatch(cs: cs.ToString(), tableName: "public.tbl_appdata", UIDValue: _uid);
+            NpgsqlConnectionStringBuilder cs = NewCS(dbHost: csHost, dbPort: csPort, dbDB: csDB, dbUserID: csUserID, dbPass: csPass);
+            int output = UIDMatch(cs: cs.ToString(), tableName: "tbl_appdata", UIDValue: uid);
 
             // value out to return
             Console.Out.Write(output.ToString());
@@ -82,8 +82,8 @@ namespace uidlookup
                 {
                     using (var cmd = new NpgsqlCommand())
                     {
-                        cmd.CommandText = $"SELECT * FROM {tableName} WHERE uid = '{UIDValue}';";
                         cmd.Connection = con;
+                        cmd.CommandText = $"SELECT uid FROM {tableName} WHERE (uid = '{UIDValue}');";
                         using (NpgsqlDataReader rdr = cmd.ExecuteReader())
                         {
                             while (rdr.Read())
