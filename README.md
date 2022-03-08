@@ -1,4 +1,4 @@
-# com.optechx.uidlookup
+# optechx.uidlookup
 UID Lookup Tool for DB
 
 | Branch | Status |
